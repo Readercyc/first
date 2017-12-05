@@ -176,3 +176,150 @@ int main()
         cout<<"串T不是串S的子串."<<endl;
 	return 0;  
 }  
+
+#include<cstdio>
+#include<iostream>
+using namespace std;
+int main()
+{
+	int card[111111]={0,1};
+	int n;
+	//结论就是所有的平方数都一样 
+	while(1)
+	{	
+		//方案1 
+		cout<<"请输入任意牌数"<<endl;
+		cin>>n;
+		/*int m = 1;
+		for(;m*m<=n;m++)
+			cout<<"第"<<m*m<<"张纸牌是正面朝上的"<<endl; */
+		//方案2 
+		if(n==0)
+			break;
+		for(int i=2;i<=n;i++)
+			for(int j=i;j<=n;j+=i)
+			{
+				if(card[j]==1)
+					card[j] = 0;
+				else
+					card[j] = 1;
+			}
+		for(int i=1;i<=n;i++)
+			if(card[i]==0)
+				cout<<"第"<<i<<"张纸牌是正面朝上的"<<endl; 
+		}
+	
+	return 0;
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Untitled Page</title>
+    <style>
+        body
+        {
+            background-color:#333333;
+        }
+        
+        .card
+        {
+            display:inline-block;
+            height:140px;
+            width:100px;
+            margin-left:10px;
+            background-image:url(./zhengmian.png);
+            background-size:100% 100%;
+        }
+         .card_bg
+        {
+            display:inline-block;
+            height:140px;
+            width:100px;
+            margin-left:10px;
+            background-image:url(./beimian.jpg);
+            background-size:100% 100%;
+        }
+       button
+        {
+            width:80px;
+            margin:0 auto;
+            display:block;
+            background-color:#ddd;
+        }
+    </style>
+    <script src="jquery.js"></script>
+    <script>
+        var i = 2;
+        var card = document.getElementsByTagName("div");
+        /*console.log(card);*/
+        function start() {
+            time = setInterval(change_card, 300);
+        }
+        function change_card() {
+            if (i > 52)
+                clearInterval(time);
+            for (var j = i; j <= 52; j += i) {
+                $(card[j]).toggleClass("card");
+                $(card[j]).toggleClass("card_bg");
+            }
+            i++;
+        }
+    </script>
+</head>
+<body>
+      <div class="card" style="width:0px;margin:0;display:none"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+       <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+       <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+       <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <button onclick="start()">开始演示</button>
+</body>
+</html>
